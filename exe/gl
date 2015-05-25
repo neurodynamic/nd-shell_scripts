@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
 require_relative '../lib/nd/shell_scripts'
+include Nd::ShellScripts
 
 execute_and_record "git log #{args}"

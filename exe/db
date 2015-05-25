@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require_relative '../lib/nd/shell_scripts'
+include Nd::ShellScripts
 
 if args?
   execute_and_record "rake db:#{args}"
