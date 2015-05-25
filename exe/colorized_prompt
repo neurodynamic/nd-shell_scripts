@@ -39,4 +39,4 @@ puts [
   git_branch.light_cyan,
   time.white,
   ">"
-].join(' ')
+].join(' ') + ' '
