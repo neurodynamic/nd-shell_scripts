@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+require_relative '../lib/nd/shell_scripts/shell_scripts'
+
+total_time = `rpt commit_time`.gsub('"','')
+
+record_commit_in_harvest_app(args, total_time)
+
+execute_and_record "git commit -m \"#{args} #{total_time}\""
+
+
+
+
+
+
+
+
+
+
+def record_commit_in_harvest_app(args, total_time)
+  if command_exists? 'hcl'
+    `hcl note "
+
+    COMMIT: #{args} #{total_time}"`
+  end
+end

@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+require_relative '../lib/nd/shell_scripts/shell_scripts'
+
+if args?
+  repo_paths = `rep2 list ~/Developer`.split("\n").select { |path| not path.empty? }
+
+  repo_paths.each |path|
+    repo_name = path.split('/').last
+
+    if repo_name.include?(args.first)
+      exec "cd #{path}"
+      break
+    end
+  end
+else
+  exec "cd ~/Developer/"
+end

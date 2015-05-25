@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require_relative '../lib/nd/shell_scripts/shell_scripts'
+
+args = ARGV.join(' ')
+execute_and_record "git pull #{args}"

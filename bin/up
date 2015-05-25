@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+require_relative '../lib/nd/shell_scripts/shell_scripts'
+
+if args?
+  execute_and_record "git push origin #{args}"
+else
+  puts "git push origin --all"
+  execute_and_record "git push origin --all"
+end

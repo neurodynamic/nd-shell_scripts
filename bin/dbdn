@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+require_relative '../lib/nd/shell_scripts/shell_scripts'
+
+app_name = Dir.pwd.split('/').last
+db_name = "#{app_name}_development"
+dump_file_path = "~/Desktop/Backups/DB_BACKUP_FILES/#{app_name}/most_recent_import.dump"
+
+
+
+puts "Backing up..."
+`heroku pgbackups:capture --expire`
+puts "Downloading..."
+`curl -o $dump_file (heroku pgbackups:url)`
+
+puts "Running pg_restore from #{dump_file_path} file to #{db_name} database..."
+
+exec "pg_restore --verbose --clean --no-acl --no-owner -h localhost -d #{db_name} #{dump_file_path}"

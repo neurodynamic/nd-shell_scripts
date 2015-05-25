@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+require_relative '../lib/nd/shell_scripts/shell_scripts'
+
+gem_list = `gem list`
+
+required_gems = [
+  "repos_report",
+  "repo_timetracker",
+  "hcl",
+  "filewatcher",
+  "colorize",
+  "bundle" 
+]
+
+
+required_gems.each do |gem|
+
+  if gem_list.include?(gem_name)
+    puts "#{gem_name} gem presence verified"
+  else
+    puts "Installing #{gem_name} gem..."
+    `gem install #{gem_name}`
+  end
+
+end

@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+require_relative '../lib/nd/shell_scripts/shell_scripts'
+require "colorize"
+
+def time
+  `rpt commit_time`.gsub('"','').strip
+end
+
+def git_branch
+  branch = `git branch 2> /dev/null`
+
+  if branch.include?("* ")
+    branch.gsub('* ','').strip
+  else
+    '_'
+  end
+end
+
+def ruby_version
+  `rbenv version`.split(' ').first.strip
+end
+
+def directory
+  Dir.pwd.
+        gsub(home_folder,'~').
+        gsub('~/Developer','!').strip
+end
+
+def home_folder
+  `echo $HOME`.strip
+end
+
+
+
+puts [
+  directory.light_yellow,
+  ruby_version.magenta,
+  git_branch.light_cyan,
+  time.white,
+  ">"
+].join(' ')

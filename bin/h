@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require_relative '../lib/nd/shell_scripts/shell_scripts'
+
+exec "cd ~/#{args}"

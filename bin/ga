@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+require_relative '../lib/nd/shell_scripts/shell_scripts'
+
+if args?
+  execute_and_record "git add #{args}"
+else
+  puts "git add . && git add -u"
+  execute_and_record "git add . && git add -u"
+end
