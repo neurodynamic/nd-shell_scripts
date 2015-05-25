@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["developer@neurodynamic.io"]
 
   if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = nil
+    # spec.metadata['allowed_push_host'] = ""
   end
 
   spec.summary       = %q{Some shell scripts in Ruby}
