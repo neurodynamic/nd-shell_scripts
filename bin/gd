@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
-require_relative '../lib/nd/shell_scripts/shell_scripts'
+require_relative '../lib/nd/shell_scripts'
 
 execute_and_record "git diff #{args}"
