@@ -8,7 +8,7 @@ if args?
   repo_paths.each do |path|
     repo_name = path.split('/').last
 
-    if repo_name.include?(args.first)
+    if repo_name.include?(args.split(' ').first)
       exec "cd #{path}"
       break
     end
