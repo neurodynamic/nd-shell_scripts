@@ -5,7 +5,7 @@ include Nd::ShellScripts
 if args?
   repo_paths = `rep2 list ~/Developer`.split("\n").select { |path| not path.empty? }
 
-  repo_paths.each |path|
+  repo_paths.each do |path|
     repo_name = path.split('/').last
 
     if repo_name.include?(args.first)
